@@ -1,0 +1,49 @@
+name: endless_runner
+description: "A never ending game"
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flame: ^1.19.0
+  flame_audio: ^2.10.3
+  shared_preferences: ^2.3.2
+  wakelock_plus: ^1.2.8
+  url_launcher: ^6.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/flame.png
+    - assets/images/socials/
+    - assets/images/background/
+    - assets/images/foreground/
+    - assets/images/foreground/
+    - assets/images/foreground/coin/
+    - assets/images/foreground/enemies/
+    - assets/images/foreground/powerups/
+    - assets/images/character/
+    - assets/audio/
+
+  fonts:
+    - family: Game
+      fonts:
+        - asset: assets/fonts/game.ttf
+    - family: Detail
+      fonts:
+        - asset: assets/fonts/detail.otf
