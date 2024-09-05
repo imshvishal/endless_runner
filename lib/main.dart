@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:endless_runner/game/config.dart';
 import 'package:endless_runner/game/hurdle_escape.dart';
 import 'package:endless_runner/screens/game_over.dart';
@@ -11,10 +10,12 @@ import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
+// import 'dart:html';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await WakelockPlus.enable();
   await FlameAudio.audioCache.loadAll(AudioAsset.getAllAudioAssets());
+  await WakelockPlus.enable();
   await Flame.device.setLandscape();
   await Flame.device.fullScreen();
   FlameAudio.bgm.initialize();

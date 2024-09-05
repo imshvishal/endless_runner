@@ -33,5 +33,10 @@
   </head>
   <body>
     <script src="flutter_bootstrap.js" async></script>
+    <script>
+      document.addEventListener("touchstart", () => {
+        if (!document.fullscreen) document.body.requestFullscreen();
+      });
+    </script>
   </body>
 </html>

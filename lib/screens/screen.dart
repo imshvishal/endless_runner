@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:endless_runner/screens/utils/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -22,7 +23,6 @@ class OverlayScreen extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (context) {
-                    double iconSize = 30;
                     return AlertDialog(
                       actionsAlignment: MainAxisAlignment.center,
                       content: Column(
@@ -61,64 +61,19 @@ class OverlayScreen extends StatelessWidget {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              GestureDetector(
+                            children:
+                                List.of(AppConfig.socials.entries.map((entry) {
+                              return GestureDetector(
                                 child: Image.asset(
-                                  "assets/images/socials/browser.png",
-                                  height: iconSize,
-                                  width: iconSize,
+                                  "assets/images/socials/${entry.key}.png",
+                                  height: 30,
+                                  width: 30,
                                 ),
                                 onTap: () {
-                                  launchUrl(Uri.parse("https://krvishal.xyz"));
+                                  launchUrl(Uri.parse(entry.value));
                                 },
-                              ),
-                              GestureDetector(
-                                child: Image.asset(
-                                  "assets/images/socials/instagram.png",
-                                  height: iconSize,
-                                  width: iconSize,
-                                ),
-                                onTap: () {
-                                  launchUrl(Uri.parse(
-                                      "https://instagram.com/imshvishal"));
-                                },
-                              ),
-                              GestureDetector(
-                                child: Image.asset(
-                                  "assets/images/socials/linkedin.png",
-                                  height: iconSize,
-                                  width: iconSize,
-                                ),
-                                onTap: () {
-                                  launchUrl(Uri.parse(
-                                      "https://linkedin.com/in/imshvishal"));
-                                },
-                              ),
-                              GestureDetector(
-                                child: Image.asset(
-                                  "assets/images/socials/github.png",
-                                  height: iconSize,
-                                  width: iconSize,
-                                ),
-                                onTap: () {
-                                  launchUrl(Uri.parse(
-                                      "https://github.com/imshvishal"));
-                                },
-                              ),
-                              if (!kIsWeb)
-                                GestureDetector(
-                                  child: Image.asset(
-                                    "assets/images/socials/share.png",
-                                    height: iconSize,
-                                    width: iconSize,
-                                  ),
-                                  onTap: () {
-                                    var platform = Platform.operatingSystem;
-                                    launchUrl(Uri.parse(
-                                        "https://krvishal.xyz/hurdle_escape_game_$platform"));
-                                  },
-                                )
-                            ],
+                              );
+                            })),
                           )
                         ],
                       ),
@@ -127,7 +82,10 @@ class OverlayScreen extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
-                          child: const Text('Close'),
+                          child: const Text(
+                            'Close',
+                            style: TextStyle(fontFamily: "Detail"),
+                          ),
                         ),
                       ],
                     );

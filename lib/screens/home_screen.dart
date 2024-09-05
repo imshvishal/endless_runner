@@ -43,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Text(
               GameConfig.gameName,
+              textAlign: TextAlign.center,
               style: Styles.textStyle.copyWith(
                   color: const Color.fromARGB(255, 106, 212, 109),
                   fontSize: 80),
