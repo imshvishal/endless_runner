@@ -1,4 +1,4 @@
-# endless_runner
+# Hurdle Escape
 
 A never ending game
 
